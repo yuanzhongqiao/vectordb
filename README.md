@@ -27,14 +27,7 @@ docker run --pull=always -d -p 8888:8888 -v /data:/data epsilla/vectordb" tabind
   </div></div>
 <p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2. 与Python客户端交互</font></font></strong></p>
 <div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>pip install pyepsilla</pre><div class="zeroclipboard-container">
-    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="pip install pyepsilla" tabindex="0" role="button">
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
-    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
-</svg>
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
-    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
-</svg>
-    </clipboard-copy>
+     
   </div></div>
 <div class="highlight highlight-source-python notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-k">from</span> <span class="pl-s1">pyepsilla</span> <span class="pl-k">import</span> <span class="pl-s1">vectordb</span>
 
@@ -79,56 +72,7 @@ docker run --pull=always -d -p 8888:8888 -v /data:/data epsilla/vectordb" tabind
 <span class="pl-c">#     ],</span>
 <span class="pl-c">#     'statusCode': 200</span>
 <span class="pl-c"># }</span></pre><div class="zeroclipboard-container">
-    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="from pyepsilla import vectordb
-
-client = vectordb.Client(host='localhost', port='8888')
-client.load_db(db_name=&quot;MyDB&quot;, db_path=&quot;/data/epsilla&quot;)
-client.use_db(db_name=&quot;MyDB&quot;)
-
-client.create_table(
-    table_name=&quot;MyTable&quot;,
-    table_fields=[
-        {&quot;name&quot;: &quot;ID&quot;, &quot;dataType&quot;: &quot;INT&quot;, &quot;primaryKey&quot;: True},
-        {&quot;name&quot;: &quot;Doc&quot;, &quot;dataType&quot;: &quot;STRING&quot;},
-    ],
-    indices=[
-      {&quot;name&quot;: &quot;Index&quot;, &quot;field&quot;: &quot;Doc&quot;},
-    ]
-)
-
-client.insert(
-    table_name=&quot;MyTable&quot;,
-    records=[
-        {&quot;ID&quot;: 1, &quot;Doc&quot;: &quot;Jupiter is the largest planet in our solar system.&quot;},
-        {&quot;ID&quot;: 2, &quot;Doc&quot;: &quot;Cheetahs are the fastest land animals, reaching speeds over 60 mph.&quot;},
-        {&quot;ID&quot;: 3, &quot;Doc&quot;: &quot;Vincent van Gogh painted the famous work \&quot;Starry Night.\&quot;&quot;},
-        {&quot;ID&quot;: 4, &quot;Doc&quot;: &quot;The Amazon River is the longest river in the world.&quot;},
-        {&quot;ID&quot;: 5, &quot;Doc&quot;: &quot;The Moon completes one orbit around Earth every 27 days.&quot;},
-    ],
-)
-
-client.query(
-    table_name=&quot;MyTable&quot;,
-    query_text=&quot;Celestial bodies and their characteristics&quot;,
-    limit=2
-)
-
-# Result
-# {
-#     'message': 'Query search successfully.',
-#     'result': [
-#         {'Doc': 'Jupiter is the largest planet in our solar system.', 'ID': 1},
-#         {'Doc': 'The Moon completes one orbit around Earth every 27 days.', 'ID': 5}
-#     ],
-#     'statusCode': 200
-# }" tabindex="0" role="button">
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
-    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
-</svg>
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
-    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
-</svg>
-    </clipboard-copy>
+   
   </div></div>
 <div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">特征：</font></font></h2><a id="user-content-features" class="anchor" aria-label="永久链接： 特点：" href="#features"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
 <ul dir="auto">
@@ -168,36 +112,14 @@ bash install_oatpp_modules.sh
 <span class="pl-c1">cd</span> ..
 bash build.sh
 ls -lh build/<span class="pl-k">*</span>.so</pre><div class="zeroclipboard-container">
-    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="cd engine/scripts
-(If on Ubuntu, run this first: bash setup-dev.sh)
-bash install_oatpp_modules.sh
-cd ..
-bash build.sh
-ls -lh build/*.so" tabindex="0" role="button">
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
-    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
-</svg>
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
-    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
-</svg>
-    </clipboard-copy>
+    
   </div></div>
 <p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2. 使用上一步中构建的文件夹“build”中的 python bindings lib "epsilla.so" "libvectordb_dylib.so 运行测试</font></font></strong></p>
 <div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-c1">cd</span> engine
 <span class="pl-k">export</span> PYTHONPATH=./build/
 <span class="pl-k">export</span> DB_PATH=/tmp/db33
 python3 test/bindings/python/test.py</pre><div class="zeroclipboard-container">
-    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="cd engine
-export PYTHONPATH=./build/
-export DB_PATH=/tmp/db33
-python3 test/bindings/python/test.py" tabindex="0" role="button">
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
-    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
-</svg>
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
-    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
-</svg>
-    </clipboard-copy>
+    
   </div></div>
 <p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以下是一些示例代码：</font></font></p>
 <div class="highlight highlight-source-python notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-k">import</span> <span class="pl-s1">epsilla</span>
@@ -230,42 +152,6 @@ python3 test/bindings/python/test.py" tabindex="0" role="button">
     <span class="pl-s1">with_distance</span><span class="pl-c1">=</span><span class="pl-c1">True</span>
 )
 <span class="pl-en">print</span>(<span class="pl-s1">code</span>, <span class="pl-s1">response</span>)</pre><div class="zeroclipboard-container">
-    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="import epsilla
-
-epsilla.load_db(db_name=&quot;db&quot;, db_path=&quot;/data/epsilla&quot;)
-epsilla.use_db(db_name=&quot;db&quot;)
-epsilla.create_table(
-    table_name=&quot;MyTable&quot;,
-    table_fields=[
-        {&quot;name&quot;: &quot;ID&quot;, &quot;dataType&quot;: &quot;INT&quot;, &quot;primaryKey&quot;: True},
-        {&quot;name&quot;: &quot;Doc&quot;, &quot;dataType&quot;: &quot;STRING&quot;},
-        {&quot;name&quot;: &quot;EmbeddingEuclidean&quot;, &quot;dataType&quot;: &quot;VECTOR_FLOAT&quot;, &quot;dimensions&quot;: 4, &quot;metricType&quot;: &quot;EUCLIDEAN&quot;}
-    ]
-)
-epsilla.insert(
-    table_name=&quot;MyTable&quot;,
-    records=[
-        {&quot;ID&quot;: 1, &quot;Doc&quot;: &quot;Berlin&quot;, &quot;EmbeddingEuclidean&quot;: [0.05, 0.61, 0.76, 0.74]},
-        {&quot;ID&quot;: 2, &quot;Doc&quot;: &quot;London&quot;, &quot;EmbeddingEuclidean&quot;: [0.19, 0.81, 0.75, 0.11]},
-        {&quot;ID&quot;: 3, &quot;Doc&quot;: &quot;Moscow&quot;, &quot;EmbeddingEuclidean&quot;: [0.36, 0.55, 0.47, 0.94]}
-    ]
-)
-(code, response) = epsilla.query(
-    table_name=&quot;MyTable&quot;,
-    query_field=&quot;EmbeddingEuclidean&quot;,
-    response_fields=[&quot;ID&quot;, &quot;Doc&quot;, &quot;EmbeddingEuclidean&quot;],
-    query_vector=[0.35, 0.55, 0.47, 0.94],
-    filter=&quot;ID < 6&quot;,
-    limit=10,
-    with_distance=True
-)
-print(code, response)" tabindex="0" role="button">
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
-    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
-</svg>
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
-    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
-</svg>
-    </clipboard-copy>
+ 
   </div></div>
 </article></div>
